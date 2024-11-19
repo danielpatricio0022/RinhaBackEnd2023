@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="com.obiscr.chatgpt.settings.EasyCodeState">
+    <option name="projectFiles" value="$PROJECT_DIR$/src/main/java/org/rinha/exception/UnprocessableEntity.java;C:/Users/se66162/Documents/Daniel L/Rinha2023/src/main/java/org/rinha/model/Person.java;C:/Users/se66162/Documents/Daniel L/Rinha2023/src/main/java/org/rinha/model/PersonRqDTO.java;C:/Users/se66162/Documents/Daniel L/Rinha2023/src/main/java/org/rinha/model/PersonRsDTO.java;C:/Users/se66162/Documents/Daniel L/Rinha2023/src/main/java/org/rinha/repository/PersonRepository.java;C:/Users/se66162/Documents/Daniel L/Rinha2023/src/main/java/org/rinha/service/PersonService.java;C:/Users/se66162/Documents/Daniel L/Rinha2023/src/main/java/org/rinha/Main.java;C:/Users/se66162/Documents/Daniel L/Rinha2023/pom.xml" />
+  </component>
+</project>
