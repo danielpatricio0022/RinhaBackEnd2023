@@ -33,7 +33,47 @@ public class Person {
     @Column(name = "stack", length = 32, nullable = true) // mapping for the collection table
     private List<String> stack;
 
+    public Person(String apelido, String nome, LocalDate nascimento, List<String> stack) {
+        this.apelido = apelido;
+        this.nome = nome;
+        this.nascimento = nascimento;
+        this.stack = stack;
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
 
 
+    public String getApelido() {
+        return apelido;
+    }
 
+    public void setApelido(String apelido) {
+        this.apelido = apelido;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public LocalDate getNascimento() {
+        return nascimento;
+    }
+
+    public void setNascimento(LocalDate nascimento) {
+        this.nascimento = nascimento;
+    }
+
+    public List<String> getStack() {
+        return stack;
+    }
+
+    public void setStack(List<String> stack) {
+        this.stack = stack;
+    }
 }
