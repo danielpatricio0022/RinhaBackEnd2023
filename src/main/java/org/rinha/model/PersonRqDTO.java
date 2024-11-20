@@ -1,8 +1,10 @@
 package org.rinha.model;
 
 
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
@@ -11,19 +13,23 @@ import java.util.List;
 
 public class PersonRqDTO {
 
-    @NotNull
-    @NotBlank
-    @Size(min = 1, max = 32)
+    @NotNull(message = "The nickname must be informed")
+    @NotBlank(message = "The nickname must be informed")
+    @Pattern(regexp = "^[A-Za-z ]+$")
+    @Size(min = 1, max = 32 , message = "The nickname must be between 1 and 32 characters")
     private String apelido;
 
-    @NotNull
-    @NotBlank
-    @Size(min = 1, max = 100)
+    @NotNull(message = "The name must be informed")
+    @NotBlank(message = "The name must be informed")
+    @Pattern(regexp = "^[A-Za-z ]+$")
+    @Size(min = 1, max = 100 , message = "The name must be between 1 and 100 characters")
     private String nome;
-    @NotNull
+    @NotNull(message = "The birth date must be informed")
     private LocalDate nascimento;
 
-    private List<@Size(min = 1, max = 32) String> stack;
+    @Size(min = 1, message = "Stack not be empty")
+    @Valid
+    private List<@Pattern(regexp = "^[A-Za-z]+$", message = "Each stack item must be a valid language") String> stack;
 
     public PersonRqDTO() {
     }

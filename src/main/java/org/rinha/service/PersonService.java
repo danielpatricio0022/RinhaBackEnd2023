@@ -1,5 +1,6 @@
 package org.rinha.service;
-import org.rinha.exception.UnprocessableEntity;
+import org.rinha.exception.NotFoundException;
+import org.rinha.exception.UnprocessableEntityException;
 import org.rinha.model.Person;
 import org.rinha.model.PersonRqDTO;
 import org.rinha.model.PersonRsDTO;
@@ -9,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -22,7 +22,7 @@ public class PersonService {
     public PersonRsDTO createPerson( PersonRqDTO personRqDTO) {
           var data = personRepository.existsByApelido(personRqDTO.getApelido());
             if (data) {
-                throw new UnprocessableEntity("apelido already exists"); // 422 TODO: exception
+                throw new UnprocessableEntityException("apelido already exists "); // 422
             }
               var person = new Person(
                       personRqDTO.getApelido(),
@@ -63,16 +63,8 @@ public class PersonService {
 
     public PersonRsDTO getPersonById( UUID id){
 
-      boolean data = personRepository.existsById(id);
-          if(!data){
-              throw new UnprocessableEntity("not found"); // tratar
-          }
-
-            Optional<Person> personOpt = personRepository.findById(id);
-
-               Person person = personOpt.orElseThrow
-                                          (RuntimeException::new);
-              // is present
+        Person person = personRepository.findById(id)
+                .orElseThrow(NotFoundException::new);
 
                 return new PersonRsDTO(
                         person.getUuid(),
