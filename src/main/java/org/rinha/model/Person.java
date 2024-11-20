@@ -25,13 +25,16 @@ public class Person {
     private String nome;
 
     @Column(name = "nascimento")
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate nascimento;
 
     @ElementCollection
     @CollectionTable(name = "stack", joinColumns = @JoinColumn(name = "person_id"))
     @Column(name = "stack", length = 32, nullable = true) // mapping for the collection table
     private List<String> stack;
+
+    public Person() {
+    }
 
     public Person(String apelido, String nome, LocalDate nascimento, List<String> stack) {
         this.apelido = apelido;
