@@ -1,6 +1,6 @@
 package org.rinha.controller;
 
-import org.apache.coyote.BadRequestException;
+
 import org.rinha.exception.ExceptionBadRequest;
 import org.rinha.exception.UnprocessableEntityException;
 import org.rinha.model.PersonRqDTO;
