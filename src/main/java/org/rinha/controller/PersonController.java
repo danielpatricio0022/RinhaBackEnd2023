@@ -51,8 +51,6 @@ public class PersonController implements WebMvcConfigurer {
     }
 
 
-
-
     @GetMapping("/{id}")
     public ResponseEntity<PersonRsDTO> getPersonById(@PathVariable UUID id) {
 
