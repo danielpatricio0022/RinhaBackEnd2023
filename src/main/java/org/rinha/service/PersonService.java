@@ -74,6 +74,13 @@ public class PersonService {
                         person.getStack()
                 );
     }
+
+
+    public Long getTotalPerson() {
+        return personRepository.count();
+    }
+
+
 }
 
 

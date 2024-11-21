@@ -61,4 +61,11 @@ public class PersonController implements WebMvcConfigurer {
     }
 
 
+    @GetMapping("/contagem-pessoas")
+    public ResponseEntity<String> getTotalPerson() {
+
+        long count = personService.getTotalPerson();
+        return ResponseEntity.ok(String.valueOf(count));
+    }
+
 }
